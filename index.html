@@ -1,34 +1,240 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Learn JavaScript</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  </head>
-  <body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+</head>
+
+<body>
     <main class="container">
         <div class="row">
             <div class="col-12 p-3 bg-warning">
                 <h1>Learn JavaScript</h1>
             </div>
             <div class="col-12 p-3">
-                <h2>Topic : </h2>
+                <h2>Topic : The Date Object</h2>
                 <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum recusandae libero unde impedit minus officia reiciendis dolore tempora. Ut optio atque modi? Neque cupiditate quam perferendis? Mollitia iure illum corrupti!
-            </p>
-            </div>`
-            <div id="content" class="border p-3">
-
+                <ul>
+                    <li>Represents a point in time.</li>
+                    <li>Let's do some basic operations with date and time.</li>
+                </ul>
+                </p>
             </div>
+            <div id="content" class="border p-3"></div>
         </div>
     </main>
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    <li></li>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
 
     <script>
+        const content = document.querySelector("#content");
+        // INSERT COMMANDS
+        content.innerHTML = `
+        <h4>Set Date Commands</h4>
+        <ol>
+            <li>
+                <strong>By Milliseconds since Jan 1970</strong><br/>
+                d = new Date(1164411006456);     
+            </li>
+            <li>
+                <strong>DateTime String: ISO Method</strong><br/>
+                d = new Date("2015-09-18T11:30:00+08:00");<br/>
+                <em>Format : YYYY-MM-DD (using T to separate Date and time) HH:MM:SS + UTC offset</em>
+            </li>
+            <li> 
+                <strong>Pass individual parts</strong><br/>
+                d = new Date(2015, 8, 18, 11, 30, 27, 0);
+                <em>Format : (Year, Month index (i.e Sep is 8), Day, Hours, Minutes, Seconds, Milliseconds), UTC auto based on your device-location </em>
+            </li>
+        </ol>`;
 
+        // READ COMMANDS
+        content.innerHTML += `
+        <hr/>
+        <h4>Read Date Commands</h4>
+        <ul>
+            <li>
+                <strong>Full Year</strong><br/>
+                console.log(d.getFullYear());    
+            </li>
+            <li>
+                <strong>Month: Index of the Month (i.e 3 => April)</strong><br/>
+                console.log(d.getMonth());
+            </li>
+            <li> 
+                <strong>Date of the month</strong><br/>
+                console.log(d.getDate());
+            </li>
+            <li> 
+                <strong>Day of the week (i.e 5 => Friday)</strong><br/>
+                console.log(d.getDay());
+            </li>
+            <li> 
+                <strong>Hours</strong><br/>
+                console.log(d.getHours());
+            </li>
+            <li> 
+                <strong>Minutes</strong><br/>
+                console.log(d.getMinutes());
+            </li>
+            <li> 
+                <strong>Seconds</strong><br/>
+                console.log(d.getSeconds());
+            </li>
+            <li> 
+                <strong>Milliseconds</strong><br/>
+                console.log(d.getMilliseconds());
+            </li>
+        </ul>
+        `
+ 
+        // UPDATE COMMANDS
+        content.innerHTML += `
+        <hr/>
+        <h4>Update Date Commands</h4>
+        <ul>
+            <li>
+                <strong>Full Year : set year to 2022</strong><br/>
+                d.setFullYear(2022);  
+            </li>
+            <li>
+                <strong>Month: set month to January </strong><br/>
+                d.setMonth( 0 );
+            </li>
+            <li> 
+                <strong>Date of the month: set date to 5th</strong><br/>
+                d.setDate(5);
+            </li>
+            <li> 
+                <strong>Hours: set hours to 10 hour mark</strong><br/>
+                d.setHours(10); 
+            </li>
+            <li> 
+                <strong>Minutes: set minutes to 05 minute mark</strong><br/>
+                d.setMinutes(05)
+            </li>
+            <li> 
+                <strong>Seconds: set seconds to 55 seconds</strong><br/>
+                d.setSeconds(55);
+            </li>
+        </ul>
+        `
+ 
+        content.innerHTML += `
+        <hr/>
+        <h4>Set Date Commands</h4>
+        <ul>
+            // 
+        
+        // LocaleString
+        console.log(d.toLocaleString("en-AU")); // Print in Australia time format 
+        console.log(d.toLocaleString("en-US")); // Print in US time format
+
+        console.log(d.toLocaleString("en-AU", {
+            timeZone : "America/Los_Angeles"
+        })); // print in Australia time format using the America/LA timezone
+        
+        console.log(JSON.stringify({
+            myDate : d
+        })) // JSON will convert the date to ISO format
+            <li>
+                <strong>ISO format of Date</strong><br/>
+                console.log(d.toISOString());  
+            </li>
+            <li>
+                <strong>DateTime String: ISO Method</strong><br/>
+                d = new Date("2015-09-18T11:30:00+08:00");<br/>
+                <em>Format : YYYY-MM-DD (using T to separate Date and time) HH:MM:SS + UTC offset</em>
+            </li>
+            <li> 
+                <strong>Pass individual parts</strong><br/>
+                d = new Date(2015, 8, 18, 11, 30, 27, 0);
+                <em>Format : (Year, Month index (i.e Sep is 8), Day, Hours, Minutes, Seconds, Milliseconds), UTC auto based on your device-location </em>
+            </li>
+        </ul>`;
+
+
+        var d;
+        // CREATE NEW DATE 
+        d = new Date(); // create a new datetime
+        // PRINT THE DATE IN STRING FORMAT
+        console.log( d.toString() ); 
+        // you will see the display of the date time
+        // e.g output => Tue Oct 25 2022 13:05:52 GMT+0800
+
+        // ====== WAYS TO SET DATE ======
+        // a. By Milliseconds since Jan 1970
+        d = new Date(1164411006456);  
+        console.log( d.toString() );
+
+        console.log("====== SET DATE METHOD ======")
+        // b. DateTime String: ISO Method
+        d = new Date("2015-09-18T11:30:00+08:00");  
+        // Format : YYYY-MM-DD (using T to separate Date and time) HH:MM:SS + UTC offset
+        console.log( d.toString() );
+
+        // c. Pass individual parts
+        d = new Date(2015, 8, 18, 11, 30, 27, 0);
+        // Format : (Year, Month index (i.e Sep is 8), Day, Hours, Minutes, Seconds, Milliseconds) , UTC auto based on your device-location 
+        console.log( d.toString() );
+
+        d = new Date(2015, 8);
+        // This case will assign year and month and the rest will be default
+        console.log( d.toString() );
+
+        // ====== WAYS TO READ DATE DATA ======
+        // Let;s take a look at this sample date
+        d = new Date(2015, 8, 1, 11, 30, 27, 0);
+        console.log("\n====== READ DATE METHOD ======")
+        console.log(d.getFullYear());   // Full Year
+        console.log(d.getMonth());      // Index of the Month (i.e 3 => April)
+        console.log(d.getDate());       // Date of the month
+        console.log(d.getDay());        // Day of the week (i.e 5 => Friday)
+        console.log(d.getHours());      // Hours
+        console.log(d.getMinutes());    // Minutes
+        console.log(d.getSeconds());    // Seconds
+        console.log(d.getMilliseconds()); // Milliseconds
+
+        // ====== WAYS TO UPDATE/CHANGE DATE DATA ======
+        console.log("\n====== UPDATE DATE METHOD ======")
+        d.setFullYear(2022);        // set year to 2022
+        console.log( d.toString() )
+        d.setMonth( 0 );            // set month to January
+        console.log( d.toString() )
+        d.setDate(5);               // set date to 5th
+        console.log( d.toString() )
+        d.setHours(10);             // set hours to 10 hour mark
+        console.log( d.toString() )
+        d.setMinutes(05);           // set minutes to 05 minute mark
+        console.log( d.toString() )
+        d.setSeconds(55);         // set seconds to 55 seconds
+        console.log( d.toString() )
+
+        // PRINT FORMAT OF DATE
+        // Let;s take a look at this sample date
+        d = new Date(2015, 8, 1, 11, 30, 27, 0);
+        console.log("\n====== OUTPUT IN DIFFERENT FORMAT DATE METHOD ======")
+        // ISO format of Date
+        console.log(d.toISOString());
+        // LocaleString
+        console.log(d.toLocaleString("en-AU")); // Print in Australia time format 
+        console.log(d.toLocaleString("en-US")); // Print in US time format
+
+        console.log(d.toLocaleString("en-AU", {
+            timeZone : "America/Los_Angeles"
+        })); // print in Australia time format using the America/LA timezone
+        
+        console.log(JSON.stringify({
+            myDate : d
+        })) // JSON will convert the date to ISO format
     </script>
-  </body>
+</body>
+
 </html>
